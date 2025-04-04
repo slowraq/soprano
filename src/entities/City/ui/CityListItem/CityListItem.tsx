@@ -7,6 +7,10 @@ import {cityActions} from "../../model/slice/citySlice";
 import {Card} from "@/shared/ui/Card/Card";
 import {AppLink} from "@/shared/ui/AppLink/AppLink";
 import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
+import { FcLikePlaceholder } from "react-icons/fc";
+import { FcLike } from "react-icons/fc";
+
+
 
 interface CityListItemProps {
     className?: string;
@@ -51,7 +55,7 @@ export const CityListItem = memo((props: CityListItemProps) => {
         <Card className={classNames(cls.CityCard, {}, [className])}>
             <div className={cls.actions}>
                 <button className={cls.icon} onClick={onToggleFavorite}>
-                    {city.isFavorite ? '❤️' : '🤍'}
+                    {city.isFavorite ? <FcLike/> : <FcLikePlaceholder/>}
                 </button>
                 <button className={cls.icon} onClick={onRemove}>✕</button>
             </div>

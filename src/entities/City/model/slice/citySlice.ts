@@ -51,7 +51,7 @@ const citySlice = createSlice({
                 state.isLoading = false;
 
                 const alreadyExists = state.cities.some(
-                    (city) => city.id === action.payload.id
+                    (city) => city.name === action.payload.id
                 );
 
                 if (!alreadyExists) {

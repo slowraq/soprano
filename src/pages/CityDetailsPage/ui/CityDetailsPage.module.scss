@@ -1,6 +1,26 @@
 .CityDetailsPage {
   display: flex;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
-  margin-top: 74px;
+  position: relative;
+}
+.wrapper {
+  width: 70%;
+}
+
+.current{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 12px;
+  opacity: 52%;
+}
+.backIcon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  color: white;
+  z-index: 2;
 }

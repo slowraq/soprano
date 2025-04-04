@@ -1,8 +1,9 @@
 import {CityWeather} from "@/entities/City";
 import {OpenWeatherResponse} from "@/entities/City";
+import {getIsFavorite} from "@/shared/utils/getIsFaovite";
 
 export const mapWeatherToCityWeather = (data :OpenWeatherResponse): CityWeather => ({
-    id: `${data.name}-${data.sys.country}`,
+    id: data.name,
     name: data.name,
     country: data.sys.country,
     coordinates: {
@@ -18,6 +19,6 @@ export const mapWeatherToCityWeather = (data :OpenWeatherResponse): CityWeather 
         pressure: data.main?.pressure,
         windSpeed: data.wind?.speed,
     },
-    isFavorite: false,
+    isFavorite: getIsFavorite(data.name),
     date: data.dt,
 });

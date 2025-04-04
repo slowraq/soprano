@@ -1,3 +1,5 @@
 export {CityList} from './ui/CityList/CityList'
 export type {CityWeather} from './model/types/city'
 export type {OpenWeatherResponse} from './model/types/OpenWeatherResponse'
+export {ForecastList} from '../City/ui/CityDetails/ui/ForecastList/ForecastList'
+export {CurrentWeatherCard} from '../City/ui/CityDetails/ui/CurrentWeatherCard/CurrentWeatherCard'

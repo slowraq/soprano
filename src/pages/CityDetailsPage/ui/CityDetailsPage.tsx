@@ -6,7 +6,10 @@ import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch";
 import {getCityForecastById} from "@/entities/City/ui/CityDetails/model/selectors/getCityForecast";
 import {useSelector} from "react-redux";
 import {fetchCityForecastById} from "@/entities/City/ui/CityDetails/model/services/fetchCityForecastById";
-import {CurrentWeatherCard} from "@/entities/City/ui/CityDetails/ui/CurrentWeatherCard/CurrentWeatherCard";
+import {CurrentWeatherCard, ForecastList} from "@/entities/City";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import {AppLink} from "@/shared/ui/AppLink/AppLink";
+import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
 
 interface CityDetailsPageProps {
     className?: string;
@@ -18,21 +21,28 @@ interface CityDetailsPageProps {
      const dispatch = useAppDispatch();
      const city = useSelector(getCityForecastById(id!));
 
-
      useEffect(() => {
-         if (id) {
+         if (!city && id) {
              dispatch(fetchCityForecastById(id));
          }
-     }, [id, dispatch]);
+     }, [id, dispatch,city]);
 
     return (
         <div className={classNames(cls.CityDetailsPage, {}, [className])}>
-            {city?.list?.length > 0 && (
-                <CurrentWeatherCard
-                    cityName={city.city.name}
-                    forecastItem={city.list[0]}
-                />
-            )}
+            <AppLink to={RoutePath.main} className={cls.backIcon}>
+                <MdOutlineArrowBackIosNew size={24} />
+            </AppLink>
+            <div className={cls.wrapper}>
+                <p className={cls.current}>Текущая погода</p>
+                {city?.list?.length > 0 && (
+                    <CurrentWeatherCard
+                        cityName={city.city.name}
+                        forecastItem={city.list[0]}
+                    />
+                )}
+                <p className={cls.current}>Прогноз на сутки</p>
+                {city?.list && <ForecastList list={city.list} />}
+            </div>
         </div>
     )
 });
