@@ -1,0 +1,61 @@
+.CityCard {
+  width: 230px;
+  transition: 0.2s;
+  cursor: pointer;
+  height: 300px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.temp {
+  font-size: 92px;
+  text-align: center;
+}
+
+.degree{
+  font-size: 24px;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.desc {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 62px;
+  font-size: 14px;
+  text-align: center;
+  color: #ddd;
+}
+
+.weatherIcon {
+  width: 64px;
+  height: 64px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.infoTop{
+  display: flex;
+  justify-content: start;
+}
+.cityName{
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+

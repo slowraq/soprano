@@ -1,0 +1,97 @@
+.CurrentWeatherCard {
+  padding: 30px;
+  color: #fff;
+}
+
+.weatherContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.imageContainer {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.cityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainInfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cityName {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.weatherIconWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.weatherIconWrap img {
+  width: 100px;
+  height: 100px;
+}
+
+.temp {
+  font-size: 44px;
+}
+
+.description {
+  margin-top: 12px;
+}
+
+.detailedInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  font-size: 14px;
+  text-align: left;
+  justify-content: space-between;
+
+  p {
+    display: flex;
+    gap: 4px;
+    font-weight: normal;
+    align-items: center;
+  }
+}
+
+.c {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.4;
+  vertical-align: super;
+}
+
+.wrapdet {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .weatherContent {
+    flex-direction: column;
+  }
+}

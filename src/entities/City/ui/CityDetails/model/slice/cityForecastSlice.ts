@@ -1,0 +1,38 @@
+import { createSlice } from '@reduxjs/toolkit';
+import { ForecastResponse } from '../types/forecast';
+import { fetchCityForecastById } from '../services/fetchCityForecastById';
+
+interface CityForecastState {
+    data: Record<string, ForecastResponse>; // по id города
+    isLoading: boolean;
+    error?: string;
+}
+
+const initialState: CityForecastState = {
+    data: {},
+    isLoading: false,
+};
+
+export const cityForecastSlice = createSlice({
+    name: 'cityForecast',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchCityForecastById.pending, (state) => {
+                state.isLoading = true;
+                state.error = undefined;
+            })
+            .addCase(fetchCityForecastById.fulfilled, (state, action) => {
+                const id = action.meta.arg!;
+                state.data[id] = action.payload;
+                state.isLoading = false;
+            })
+            .addCase(fetchCityForecastById.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
+    },
+});
+
+export const cityForecastReducer = cityForecastSlice.reducer;
